@@ -5,9 +5,9 @@
 ~~~~
 
 # How to install?
-`git clone https://github.com/netBriler/simple-ddos.git`
+`git clone https://github.com/netBriler/briler-tools.git`
 
-`cd simple-ddos`
+`cd briler-tools`
 
 `pip install -r requirements.txt`
 
