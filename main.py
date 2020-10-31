@@ -1,4 +1,4 @@
-from services import Ddos, Scanner, Whois
+from services import Ddos, Scanner, Whois, Domain
 from colorama import Fore, init, ansi, Style
 
 init()
@@ -25,6 +25,7 @@ print(
 [1] DDOS attack
 [2] Open ports scanner
 [3] Whois ip
+[4] Get domain ip
 """
 )
 
@@ -36,6 +37,8 @@ elif select == '2':
     Scanner().run()
 elif select == '3':
     Whois().run()
+elif select == '4':
+    Domain().run()
 else:
     print(f'{Fore.RED}{Style.BRIGHT}No such action: "{select}"')
     exit()

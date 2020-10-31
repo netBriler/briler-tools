@@ -1,24 +1,24 @@
 import time
 import socket
 import threading
-from abc import ABC
 from colorama import Fore
 
 from services.interface import IService
 
 
-class Scanner(IService, ABC):
-    def __init__(self):
+class Scanner(IService):
+    def __init__(self) -> None:
         self.address = input(f'Ip or domain: ')
         self.timeout = float(input(f'Timeout (0.5 by default): ') or 0.5)
 
     def run(self) -> None:
         # Launching threads
         print(f'{Fore.YELLOW}Scanning...')
+
         for i in range(1, 65536):
             threading.Thread(target=self.scan_port, kwargs={'port': i}).start()
 
-    def scan_port(self, port):
+    def scan_port(self, port: int) -> None:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(self.timeout)
 

@@ -3,6 +3,7 @@
 [1] DDOS attack
 [2] Open ports scanner
 [3] Whois ip
+[4] Get domain ip
 ~~~~
 
 # How to install?

