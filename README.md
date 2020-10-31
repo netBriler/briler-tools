@@ -2,6 +2,7 @@
 ~~~~
 [1] DDOS attack
 [2] Open ports scanner
+[3] Whois ip
 ~~~~
 
 # How to install?
