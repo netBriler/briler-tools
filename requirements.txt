@@ -1,0 +1,4 @@
+fake_useragent==0.1.11
+colorama==0.4.4
+dnspython==2.0.0
+ipwhois==0.10.3
